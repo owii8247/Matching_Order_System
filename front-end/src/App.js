@@ -9,9 +9,9 @@ function App() {
   const [completedOrders, setCompletedOrders] = useState([]);
 
   // Fetch Order Data From Mongo DB
-  
+
   async function fetchOrders() {
-    const res = await fetch('http://localhost:8000/orders');
+    const res = await fetch('https://matching-order-system-backend.onrender.com/orders');
     const orders = await res.json();
     //console.log("orders", orders);
     setPendingOrders(orders.pending);
