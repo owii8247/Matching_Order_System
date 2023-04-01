@@ -1,12 +1,14 @@
 const express = require("express")
 const cors = require("cors")
+require("dotenv").config()
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 const OrderRoutes = require("./routes/OrderRoutes")
 
+
 const app = express()
 app.use(cors())
-PORT = 8000
+PORT = process.env.PORT || 8000
 
 // MongoDB Connection 
 mongoose.connect("mongodb://localhost:27017/ordermatching",{useNewUrlParser : true}, {useUnifiedTopology : true})
