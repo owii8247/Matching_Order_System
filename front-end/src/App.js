@@ -8,7 +8,7 @@ function App() {
   const [pendingOrders, setPendingOrders] = useState([]);
   const [completedOrders, setCompletedOrders] = useState([]);
 
-  // Fetch Order Data From Mongo DB
+  // Fetch Order Data From Mongo DB //
 
   async function fetchOrders() {
     const res = await fetch('https://matching-order-system-backend.onrender.com/orders');
