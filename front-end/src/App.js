@@ -13,7 +13,7 @@ function App() {
   async function fetchOrders() {
     const res = await fetch('https://matching-order-system-backend.onrender.com/orders');
     const orders = await res.json();
-    //console.log("orders", orders);
+    console.log("orders", orders);
     setPendingOrders(orders.pending);
     setCompletedOrders(orders.complete);
   }
@@ -23,7 +23,20 @@ function App() {
   }, []);
 
 
+  // async function addOrder(orders) {
+  //   const response = await fetch('/api/orders', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(orders)
+  //   });
+  //   const newOrder = await response.json();
+  //   setPendingOrders(prevOrders => [...prevOrders, newOrder]);
+  // }
+
   const handleSubmit = (orders) => {
+
     setPendingOrders([...pendingOrders, orders]);  // Add the new order to the pending orders table
 
     // Match new order with existing orders in the pending orders table
@@ -58,7 +71,7 @@ function App() {
       </div>
       <div>
         <h4>Pending Table</h4>
-        <PendingTable orders={pendingOrders} />
+        <PendingTable orders={pendingOrders} onSubmit={handleSubmit} />
       </div>
       <div>
         <h4>Completed Table</h4>

@@ -32,6 +32,7 @@ const Form = ({ onSubmit }) => {
         Seller Qty : <span>{" "}</span>
         <input type="number" value={sellerQty} onChange={(e) => setSellerQty(e.target.value)} />
       </label>
+     
       <button type="submit">Place Order</button>
     </form>
   )
